@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+// Prompts the user to enter a students marks and then works out their grade, and the number of marks they are from the next grade 
 class Program
 {
+    // Works out students grade and the number of marks they are from the next grade
     static string ExamGrade(int marks, out int next_grade_marks)
     {
+        // Selection that outputs different statements based off of students grade
         next_grade_marks = 0;
         if (marks >= 80)
             return "9";
@@ -60,6 +63,7 @@ class Program
     }
     
     
+    // The main entry point of the program
     static void Main(string[] args)
     {
         int marks;
@@ -67,6 +71,7 @@ class Program
 
         next_grade_marks = 0;
 
+        // Allows user to input their marks to find their grade
         Console.Write("Enter your marks (0-100): ");
         while (!int.TryParse(Console.ReadLine(), out marks) || marks < 0 || marks > 100)
         {
@@ -75,6 +80,7 @@ class Program
 
         string grade = ExamGrade(marks, out next_grade_marks);
         
+        // Sorts final output statement based of the stidents grade
         if (grade == "9")
         {
             Console.WriteLine($"A mark of {marks} is grade 9. That is the top grade!");
@@ -86,4 +92,3 @@ class Program
     
     }
 }
-
